@@ -4,22 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>健康と習慣｜まとめノート</title>
-<meta name="description" content="頑張るためではなく、心身を長く整えていくための個人的な健康と習慣のノート。">
+<meta name="description" content="頑張るためではなく、心身を長く整えていくための個人的な健康と習慣のノート。状態を知る、回復を優先する、続く強度で動く、小さく変えて習慣にする。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--bg:#f5f6f1;--surface:#fff;--ink:#243027;--muted:#657068;--faint:#98a097;--line:#dfe4dc;--accent:#547b63;--wash:#eaf0e9}
-  @media(prefers-color-scheme:dark){:root{--bg:#151a16;--surface:#1d241f;--ink:#e9eee8;--muted:#adb7ad;--faint:#778276;--line:#303a31;--accent:#93bd9d;--wash:#223124}}
-  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:44rem;margin:auto;padding:0 24px} a{color:inherit}.top{padding-top:24px}.back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
-  header{padding:76px 0 52px;border-bottom:1px solid var(--line)}.kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.22em;color:var(--accent);font-weight:700}.hero{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 20px;letter-spacing:.03em}.lead{margin:0;max-width:34em;color:var(--muted);font:500 1.02rem/1.95 "Noto Serif JP",serif}
-  section{padding:54px 0;border-bottom:1px solid var(--line)}h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 16px;letter-spacing:.03em}h3{font:600 1.08rem/1.6 "Noto Serif JP",serif;margin:0 0 10px}p{margin:0 0 16px}.pull{margin:28px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.12rem/1.8 "Noto Serif JP",serif}
-  .cards{display:grid;gap:14px;margin-top:26px}.card{padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:4px}.card p{margin:0;color:var(--muted);font-size:.92rem}.num{display:block;margin-bottom:8px;color:var(--accent);font-size:.7rem;letter-spacing:.16em;font-weight:700}
-  .note{padding:26px;background:var(--wash);border-radius:4px}.note h2{font-size:1.24rem}.note ul{margin:12px 0 0;padding-left:1.2em}.note li{margin:0 0 9px}.small{color:var(--muted);font-size:.9rem}footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151a16;--surface:#1d241f;--ink:#e9eee8;--muted:#adb7ad;--faint:#778276;--line:#303a31;--accent:#93bd9d;--wash:#223124}}
+  :root[data-theme="dark"]{--bg:#151a16;--surface:#1d241f;--ink:#e9eee8;--muted:#adb7ad;--faint:#778276;--line:#303a31;--accent:#93bd9d;--wash:#223124}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:44rem;margin:auto;padding:0 16px} @media(min-width:640px){.wrap{padding:0 24px}}
+  a{color:inherit}
+  .top{padding-top:24px;display:flex;justify-content:space-between;gap:12px}
+  .back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
+
+  header{padding:72px 0 48px;border-bottom:1px solid var(--line)}
+  .kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.22em;color:var(--accent);font-weight:700}
+  .hero{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 6px;letter-spacing:.03em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;letter-spacing:.02em;margin:.1em 0 1.1em;opacity:.85}
+  .lead{margin:0;max-width:34em;color:var(--muted);font:500 1.02rem/1.95 "Noto Serif JP",serif}
+  .toc{display:flex;flex-wrap:wrap;gap:6px 16px;margin:26px 0 0;padding:0;list-style:none;font-size:.82rem}
+  .toc a{color:var(--accent);text-decoration:none}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-n{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 16px;letter-spacing:.03em}
+  h3{font:600 1.08rem/1.6 "Noto Serif JP",serif;margin:30px 0 10px}
+  p{margin:0 0 16px}
+  .pull{margin:24px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.12rem/1.8 "Noto Serif JP",serif}
+
+  .cards{display:grid;gap:14px;margin-top:22px}
   @media(min-width:640px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+  .card h3{margin:0 0 8px}
+  .card p{margin:0;color:var(--muted);font-size:.92rem}
+  .num{display:block;margin-bottom:8px;color:var(--accent);font-size:.7rem;letter-spacing:.16em;font-weight:700}
+
+  ul.points{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+  ul.points li{padding:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:4px;font-size:.94rem}
+  ul.points b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;margin-bottom:2px}
+  ul.points span{color:var(--muted)}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 6px;font-size:.84rem}
+  .flow span{padding:6px 12px;background:var(--wash);border-radius:999px}
+  .flow i{font-style:normal;color:var(--faint)}
+
+  .pair{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0}
+  @media(min-width:640px){.pair{grid-template-columns:1fr 1fr}}
+  .pair div{padding:16px 18px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+  .pair h4{margin:0 0 4px;font-size:.72rem;letter-spacing:.16em;color:var(--accent)}
+  .pair p{margin:0;font-size:.92rem;color:var(--muted)}
+
+  .note{padding:26px;background:var(--wash);border-radius:4px}
+  .note h2{font-size:1.24rem}
+  .note ul{margin:12px 0 0;padding-left:1.2em}
+  .note li{margin:0 0 9px}
+
+  .src{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
+  .src a{display:flex;justify-content:space-between;gap:14px;padding:11px 2px;border-bottom:1px solid var(--line);text-decoration:none;font-size:.92rem}
+  .src a:hover{color:var(--accent)}
+  .src small{color:var(--faint);font-size:.76rem;white-space:nowrap}
+
+  footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  footer .related{color:var(--muted);font-size:.86rem;margin-bottom:18px}
+  footer .related a{color:var(--accent)}
 </style>
-<style>.mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;letter-spacing:.02em;margin:.1em 0 1.1em;opacity:.85}.mn-eyebrow{display:block;font-size:.72rem;letter-spacing:.24em;opacity:.6;margin:0 0 .8em}</style>
 </head>
 <body>
 <main class="wrap">
@@ -28,51 +78,136 @@
     <p class="kicker">HEALTH &amp; HABITS</p>
     <h1 class="hero">健康と習慣</h1>
     <p class="mn-tagline">頑張るためではなく、長く整えていくために。</p>
-    <p class="lead">健康を、短期的な成果のための管理対象にはしない。自分の状態を知り、無理を早めに見つけ、続けられる強度へ戻る。そのための個人的な実践ノートです。</p>
+    <p class="lead">健康を、短期的な成果のための管理対象にはしない。自分の状態を知り、無理を早めに見つけ、続けられる強度へ戻る。小さく変えて、それを習慣にしていく。そのための個人的な実践ノートです。</p>
+    <ul class="toc">
+      <li><a href="#why">なぜ整えるのか</a></li>
+      <li><a href="#cycle">三つの循環</a></li>
+      <li><a href="#notice">状態を知る</a></li>
+      <li><a href="#recover">回復を優先する</a></li>
+      <li><a href="#move">続く強度で動く</a></li>
+      <li><a href="#habit">小さく変えて、習慣にする</a></li>
+      <li><a href="#open">まだ確かめていること</a></li>
+    </ul>
   </header>
 
-  <section>
+  <section id="why">
+    <h2>なぜ整えるのか</h2>
+    <p class="pull">健康は目的ではなく、望む生き方を支える土台。</p>
+    <p><a href="../way-of-life/">生き方の指針</a>で決めたのは、自分の意思で自由に生き、世界を知る楽しさと豊かな体験を味わうこと。旅をする、自然の中を歩く、街を歩いて建築や美術を見る、山に登る。どれも、動ける体があってこそ楽しめます。</p>
+    <p>だから健康は、数字を良くするために管理するものではなく、やりたいことを長く続けられる状態を保つためのもの。頑張って一時的に良くするより、崩れたときに早く気づいて戻れることを大切にしています。</p>
+  </section>
+
+  <section id="cycle">
     <h2>健康は、三つの循環で見る</h2>
     <p>調子を一つの数字や気分だけで決めない。観察し、回復し、続けられる形に整える。その小さな循環を回すことを大切にしています。</p>
     <div class="cards">
-      <article class="card"><span class="num">01 / NOTICE</span><h3>状態を知る</h3><p>睡眠、疲労感、体温、痛み、心拍。感覚だけで終わらせず、普段との差として眺める。</p></article>
+      <article class="card"><span class="num">01 / NOTICE</span><h3>状態を知る</h3><p>睡眠、疲労感、心拍、痛み。感覚だけで終わらせず、普段との差として眺める。</p></article>
       <article class="card"><span class="num">02 / RECOVER</span><h3>回復を優先する</h3><p>低調な日は、頑張りを足さない。睡眠、休息、水分、軽い運動へ戻る。</p></article>
       <article class="card"><span class="num">03 / CONTINUE</span><h3>続く強度にする</h3><p>速さや量を追わない。会話できる速さで走るように、明日も続けられる余白を残す。</p></article>
     </div>
   </section>
 
-  <section>
-    <h2>感覚で終わらせず、指標にする</h2>
+  <section id="notice">
+    <span class="sec-n">01 / NOTICE</span>
+    <h2>状態を知る</h2>
     <p class="pull">大事なのは、絶対値ではなく、いつもの自分からどれだけ離れているか。</p>
-    <p>「疲れている」という感覚は大切ですが、それだけでは回復しているのか、悪化しているのかが分かりにくいことがあります。まずは睡眠時間、疲労感、体温、症状のようなシンプルな項目を、同じ形で残してみる。ウェアラブルの心拍やHRVも、単独の数値で判断せず、普段との差を知るための補助として使います。</p>
+    <p>「疲れている」という感覚は大切ですが、それだけでは回復しているのか、悪化しているのかが分かりにくいことがあります。睡眠時間、疲労感、症状のようなシンプルな項目を、同じ形で残していく。ウェアラブルの心拍やHRVも、単独の数値で判断せず、普段との差を知るための補助として使います。</p>
+    <ul class="points">
+      <li><b>一つの数字で決めない</b><span>睡眠時間 → HRV → 安静時心拍数 → レディネスのように、いくつかの指標を重ねて見ると、回復が追いついているかが見えてくる。</span></li>
+      <li><b>普段との差で見る</b><span>安静時心拍数もHRVも、人によって通常の値が違う。同じ数字でも、自分のいつもより高いか低いかで意味が変わる。</span></li>
+      <li><b>体感と体は一致しないことがある</b><span>元気に感じても体は疲れていることがあるし、強いストレスを感じていなくても、眠れない・肩が凝るといった形で体には出ている。食い違ったときは、無理をしない側で判断する。</span></li>
+    </ul>
+
+    <h3>「状態」と「能力」は別のもの</h3>
+    <div class="pair">
+      <div><h4>状態 ― 今日の回復</h4><p>レディネスや睡眠、HRVのように、日々変わるコンディション。今日どれだけ動くかを決める材料。</p></div>
+      <div><h4>能力 ― 体の力</h4><p>VO₂ maxのように、時間をかけて育つ体の力。数週間〜数か月の単位で見る。</p></div>
+    </div>
+    <p>8時間眠れて気持ちいいのに肩が痛い、という朝もある。「元気」か「不調」かの二択ではなく、いくつかの面から立体的に見るようにしています。</p>
+
+    <h3>データは統一せず、集約する</h3>
+    <p>デバイスを一つにそろえる必要はない。目的ごとに向いたセンサーを使い、データを一か所に集めればいい。睡眠や心拍は睡眠用のトラッカー、日中の運動は運動用のウォッチ、のように役割を分け、同じ指標を複数で測るときは、どれを正とするかを決めておく。データの量より、信頼できるデータが大事です。</p>
+    <div class="flow"><span>各デバイス・アプリ</span><i>→</i><span>Apple ヘルスケア（集める）</span><i>→</i><span>Google Health（見る・考える）</span><i>→</i><span>休む・動くを決める</span></div>
     <p>数字に従うためではなく、自分の身体の変化に早く気づくために記録する。データは結論ではなく、休む・動く・予定を減らすといった次の行動を選ぶための材料です。</p>
   </section>
 
-  <section>
-    <h2>疲れる前に、休ませる仕組みをつくる</h2>
-    <p>疲れてから大きく立て直すより、疲れが溜まる前に小さく戻す。画面を見続ける日は、遠くを見る。肩を上げて、力を抜く。飲み物をきっかけに、仕事モードから数分だけ離れる。</p>
-    <p>ここで大事なのは、完璧な休憩法ではありません。「忙しいから休めない」を前提にしても差し込める、短い切り替えを日常に置くことです。休むことは作業の中断ではなく、次の時間も自分を使える状態でいるための準備です。</p>
+  <section id="recover">
+    <span class="sec-n">02 / RECOVER</span>
+    <h2>回復を優先する</h2>
+    <p class="pull">低調な日は、頑張りを足さない。</p>
+    <p>4時間しか眠れなかった朝、数値もそろって低かった。そういう日は「どこか悪い」と考えるより、「回復が追いついていない」と捉える。予定は無理のない範囲で楽しみ、昼に少し休み、夜は早く寝る。頑張るより、回復を優先する日にします。</p>
+
+    <h3>疲れる前に、休ませる仕組みをつくる</h3>
+    <p>疲れてから大きく立て直すより、疲れが溜まる前に小さく戻す。画面を見続ける日は、遠くを見る。肩を上げて、力を抜く。飲み物をきっかけに、仕事モードから数分だけ離れる。目の疲れ、首の痛み、肩の凝りはつながっているので、30分に一度、少し体を動かすだけでも違います。</p>
+    <p>ここで大事なのは、完璧な休憩法ではありません。「忙しいから休めない」を前提にしても差し込める、短い切り替えを日常に置くことです。休むことは作業の中断ではなく、次の時間も自分を使える状態でいるための準備。休むことも、仕事のうちです。</p>
+
+    <h3>疲れることと、消耗することは違う</h3>
+    <p>週末にきつい登山をした翌日、仕事はむしろ頭がすっきりしていた。体を動かし、自然の中にいて、目的地に向かい、大変さを乗り越えた。休養は「何もしないこと」だけではなく、負荷のあることをやり遂げることも、回復になりうるのかもしれません。まだ一度きりの体験からの仮説です。</p>
+
+    <h3>安心して、ほどける</h3>
+    <p>サウナのあとの外気浴、森林浴、瞑想、登山のあとの達成感。気持ちよさの共通点は、刺激そのものより、体や脳が「もう安全で、緊張を解いていい」と感じることにあるのではないか。健康のために無理をするのではなく、心地よくほどける時間として楽しむようにしています。</p>
   </section>
 
-  <section>
-    <h2>会話できる速さで走る</h2>
+  <section id="move">
+    <span class="sec-n">03 / CONTINUE</span>
+    <h2>続く強度で動く</h2>
     <p class="pull">速さではなく、長く続けられるペースのほうが要だった。</p>
     <p>健康のための運動は、追い込むことから始めなくていい。隣の人と会話できるくらいの強度で、苦しくなれば歩く。距離や速さより、長く動き続ける感覚を育てるほうが、今の自分には合っています。</p>
     <p>翌日にぐったりしていたり、関節が痛んだりするなら、それは頑張った証ではなく、強度を下げるサインかもしれません。続けるために、余力を残します。</p>
+    <p>普段の仕事は、座って、画面を見て、頭を使うことが中心。だからこそ、歩く・登る・自然に触れるといった体を使う時間を、意識して暮らしに入れていきたい。人間は、体を動かすようにできているのだと思います。</p>
   </section>
 
-  <section>
+  <section id="habit">
+    <span class="sec-n">04 / HABIT</span>
+    <h2>小さく変えて、習慣にする</h2>
+    <p class="pull">どうすれば、今より少し良くできるだろう。</p>
+    <p>大きく変えようとすると続かない。日常には「もう少しこうしたら快適になる」という改善点がいくつもあり、一つ一つは小さくていい。続けるための考え方を、四つにまとめています。</p>
+    <ul class="points">
+      <li><b>やめるより、小さく置き換える</b><span>寝る前のスマホをいきなりやめるのではなく、ベッドに持ち込まない、寝る前に入浴する、といった小さな変化から試す。</span></li>
+      <li><b>実験の感覚で試す</b><span>「絶対に改善しなければ」ではなく、「少し変えたら睡眠がどう変わるか」を見る。うまくいかなければ、別のやり方を試せばいい。</span></li>
+      <li><b>きっかけに結びつける</b><span>飲み物を取りに行くときに体を伸ばす、のように、すでにある行動に新しい習慣をつなげると、意志の力に頼らずにすむ。</span></li>
+      <li><b>改善そのものを習慣にする</b><span>「ちょっと不便だ」「面倒だ」と思ったことは、その場で解決しなくても一か所に書きとめておく（改善アイデアの受け皿）。そこに、早く・楽に・自動化・やめる・本当に必要か、という問いを向ける。</span></li>
+    </ul>
+    <p style="margin-top:18px">記録も同じで、目的は集めることではなく、データ → 気づき → 行動 → 改善の循環を回すことです。</p>
+  </section>
+
+  <section id="open">
     <div class="note">
       <h2>このノートで、まだ確かめていること</h2>
       <ul>
         <li>睡眠・作業量・食事・運動は、自分の回復感にどう影響するのか</li>
+        <li>自分のHRVや安静時心拍数の「いつもの値」はどのくらいか</li>
+        <li>数値と体感が食い違ったとき、どう判断するのがよいのか</li>
+        <li>自分にとって「良い疲れ」と「悪い疲れ」の違いは何か。登山のあとの感覚は再現できるのか</li>
         <li>どんな小さな休憩なら、忙しい日にも続けられるのか</li>
-        <li>健康データを集めることを、行動の改善につなげるにはどうすればよいか</li>
+        <li>書きためた改善のアイデアを、どう定期的に見直し、実行につなげるか</li>
       </ul>
     </div>
   </section>
 
-  <footer><p>専門家ではない個人が、自分の実践と思考を書きとめたノートです。医療上の判断や治療の代替を目的とするものではありません。</p><p><a class="back" href="../">← m-note トップ</a></p></footer>
+  <section>
+    <h2>このノートの元になったつぶやき</h2>
+    <p class="small" style="color:var(--muted);font-size:.9rem">日々の気づきを書きとめたものから、このページをまとめています。</p>
+    <nav class="src">
+      <a href="../musings/posts/p143.html">きつかったけど、いい気持ちだった<small>2026.10.05</small></a>
+      <a href="../musings/posts/p135.html">状態と、能力は別だった<small>2026.09.22</small></a>
+      <a href="../musings/posts/p112.html">統一ではなく、集約する<small>2026.09.07</small></a>
+      <a href="../musings/posts/p104.html">感覚で終わらせず、指標にする<small>2026.08.30</small></a>
+      <a href="../musings/posts/p101.html">頑張るより、回復を優先する<small>2026.08.29</small></a>
+      <a href="../musings/posts/p091.html">休むことも、仕事のうち<small>2026.08.26</small></a>
+      <a href="../musings/posts/p090.html">疲れが出る前に、休ませる仕組み<small>2026.08.26</small></a>
+      <a href="../musings/posts/p082.html">安心して、ほどける<small>2026.08.24</small></a>
+      <a href="../musings/posts/p066.html">感じていなくても、身体は反応していた<small>2026.08.11</small></a>
+      <a href="../musings/posts/p062.html">今より、少し良くする<small>2026.08.10</small></a>
+      <a href="../musings/posts/p051.html">会話できる速さで走る<small>2026.08.07</small></a>
+    </nav>
+  </section>
+
+  <footer>
+    <p class="related">あわせて読む：<a href="../way-of-life/">生き方の指針</a> ・ <a href="../mindfulness/">マインドフルネス</a> ・ <a href="../brain/">脳のしくみ</a></p>
+    <p>専門家ではない個人が、自分の実践と思考を書きとめたノートです。医療上の判断や治療の代替を目的とするものではありません。</p>
+    <p><a class="back" href="../">← m-note トップ</a></p>
+  </footer>
 </main>
 </body>
 </html>
